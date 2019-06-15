@@ -632,8 +632,10 @@ public class plataforma extends javax.swing.JFrame {
                 } else {
                     DefaultTableModel modelo = (DefaultTableModel) jt_productos.getModel();
                     for (Producto p : productos) {
-                        modelo.addRow(os);
+                        modelo.addRow(new Object[]{p.getNombre(), p.getCantidad(), p.getPrecio(), p.getVencimiento()});
                     }
+                    jt_productos.setModel(modelo);
+                    
                     jd_cliente.setModal(true);
                     jd_cliente.pack();
                     jd_cliente.setLocationRelativeTo(this);
